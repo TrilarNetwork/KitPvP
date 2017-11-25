@@ -9,7 +9,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 
 import me.imelvin.kitpvp.utils.PlayerDataManager;
 
-public class PlayerDeath implements Listener {
+public class PDeath implements Listener {
 	public static HashMap<String, Integer> streak = new HashMap<>();
 	
 	@EventHandler

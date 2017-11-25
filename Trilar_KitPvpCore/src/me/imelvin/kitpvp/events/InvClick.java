@@ -8,9 +8,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
-import me.imelvin.kitpvp.utils.GUI;
+import me.imelvin.kitpvp.utils.KitPvPGUI;
 
-public class InventoryClick implements Listener {
+public class InvClick implements Listener {
 
 	@EventHandler
 	public void onClick(InventoryClickEvent e) {
@@ -22,18 +22,18 @@ public class InventoryClick implements Listener {
 			e.setCancelled(true);
 			if (i.getType() == Material.SKULL_ITEM) {
 				p.closeInventory();
-				GUI.profileMenu(p);
+				KitPvPGUI.profileMenu(p);
 			} else if (i.getType() == Material.DIAMOND_SWORD) {
 				// join game
 			} else if (i.getType() == Material.CHEST) {
 				p.closeInventory();
-				GUI.kitsMenu(p);
+				KitPvPGUI.kitsMenu(p);
 			}
 		} else if (ChatColor.stripColor(p.getOpenInventory().getTitle()).equals("Profile")) {
 			e.setCancelled(true);
 			if (i.getType() == Material.DARK_OAK_DOOR) {
 				p.closeInventory();
-				GUI.globalMenu(p);
+				KitPvPGUI.globalMenu(p);
 			}
 		} else if (ChatColor.stripColor(p.getOpenInventory().getTitle()).equals("Kits")) {
 			e.setCancelled(true);

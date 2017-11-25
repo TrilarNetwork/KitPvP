@@ -1,6 +1,7 @@
 package me.imelvin.kitpvp.utils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -14,9 +15,11 @@ import me.shizleshizle.core.utils.CI;
 import me.shizleshizle.core.utils.T_ItemStack;
 
 public class Kits {
+	
+	public static HashMap<String, Kit> kits = new HashMap<>();
 
 	public enum Kit {
-		TANK, PVP, NO_DEBUFF, TROL, AXE, TROLL, DEBUF, INVISIBLE, STRENGTH, ARCHER, OP
+		TANK, PVP, NO_DEBUFF, TROLL, AXE, TROLL_2, DEBUF, INVISIBLE, STRENGTH, ARCHER, OP
 	}
 	
 	public static void giveKit(Player p, Kit k) {
@@ -32,7 +35,7 @@ public class Kits {
 			p.getInventory().clear();
 			ItemStack[] items = ndefkit.toArray(new ItemStack[ndefkit.size()]);
 			p.getInventory().setContents(items);
-		}  else if (k.equals(Kit.TROL)) {
+		}  else if (k.equals(Kit.TROLL)) {
 			p.getInventory().clear();
 			ItemStack[] items = trolkit.toArray(new ItemStack[trolkit.size()]);
 			p.getInventory().setContents(items);
@@ -40,7 +43,7 @@ public class Kits {
 			p.getInventory().clear();
 			ItemStack[] items = axekit.toArray(new ItemStack[axekit.size()]);
 			p.getInventory().setContents(items);
-		} else if (k.equals(Kit.TROLL)) {
+		} else if (k.equals(Kit.TROLL_2)) {
 			p.getInventory().clear();
 			ItemStack[] items = trollkit.toArray(new ItemStack[trollkit.size()]);
 			p.getInventory().setContents(items);

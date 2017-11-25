@@ -11,10 +11,12 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.imelvin.kitpvp.events.InventoryClick;
-import me.imelvin.kitpvp.events.PlayerDeath;
-import me.imelvin.kitpvp.events.PlayerJoin;
-import me.imelvin.kitpvp.utils.EpearlCD;
+import me.imelvin.kitpvp.commands.Arenas;
+import me.imelvin.kitpvp.commands.KitSelectorPlacement;
+import me.imelvin.kitpvp.events.InvClick;
+import me.imelvin.kitpvp.events.PDeath;
+import me.imelvin.kitpvp.events.PInteract;
+import me.imelvin.kitpvp.events.PJoin;
 import me.imelvin.kitpvp.utils.Kits;
 import me.imelvin.kitpvp.utils.PlayerDataManager;
 import me.shizleshizle.core.utils.DisableAI;
@@ -42,11 +44,13 @@ public class Kitpvp extends JavaPlugin {
 			v.setProfession(Profession.BLACKSMITH);
 			DisableAI.disableAI(v);
 		}
+		getCommand("arena").setExecutor(new Arenas());
+		getCommand("npcplace").setExecutor(new KitSelectorPlacement());
 		PluginManager pm = getServer().getPluginManager();
-		pm.registerEvents(new InventoryClick(), this);
-		pm.registerEvents(new PlayerDeath(), this);
-		pm.registerEvents(new PlayerJoin(), this);
-		pm.registerEvents(new EpearlCD(), this);
+		pm.registerEvents(new InvClick(), this);
+		pm.registerEvents(new PDeath(), this);
+		pm.registerEvents(new PJoin(), this);
+		pm.registerEvents(new PInteract(), this);
 		long e = System.currentTimeMillis();
 		l.info("KitPvP Core >> Enabled! (" + (e - b) + " ms)");
 	}

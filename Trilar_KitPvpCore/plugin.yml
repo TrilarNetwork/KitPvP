@@ -1,3 +1,8 @@
-name: KitPvPCore
-main: com.imelvin.kitpvp.Main
+name: Trilar_KitPvP
+main: me.imelvin.kitpvp.Kitpvp
 version: 0.0.1
+commands:
+  arena:
+    description: Set, list or remove an arena!
+  npcplace:
+    description: Place the NPC for Kit selector!

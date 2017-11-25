@@ -19,6 +19,8 @@ public class PvPConfig {
 	private File cfile;
 	private FileConfiguration playerData;
 	private File pdf;
+	private FileConfiguration arenas;
+	private File carena;
 
 	public static PvPConfig getInstance() {
 		return instance;
@@ -57,6 +59,15 @@ public class PvPConfig {
 			}
 		}
 		playerData = YamlConfiguration.loadConfiguration(pdf);
+		if (!carena.exists()) {
+			try {
+				Path path = Paths.get(carena.getAbsolutePath());
+				Files.createFile(path);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		arenas = YamlConfiguration.loadConfiguration(carena);
 	}
 
 	public void saveConfig() {
@@ -89,6 +100,22 @@ public class PvPConfig {
 
 	public FileConfiguration getPlayerData() {
 		return playerData;
+	}
+	
+	public void saveArenas() {
+		try {
+			arenas.save(carena);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void reloadArenas() {
+		arenas = YamlConfiguration.loadConfiguration(carena);
+	}
+	
+	public FileConfiguration getArenasFile() {
+		return arenas;
 	}
 	
 	public void setNPCLocation(double x, double y, double z, float yaw, float pitch, String world) {

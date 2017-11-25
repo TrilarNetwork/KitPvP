@@ -84,19 +84,11 @@ public class PlayerDataManager {
 	}
 	
 	public static int getKills(Player p) {
-		if (kills.get(p.getName()) != null) {
-			return kills.get(p.getName());
-		} else {
-			return 0;
-		}
+		return kills.get(p.getName());
 	}
 	
 	public static int getDeaths(Player p) {
-		if (deaths.get(p.getName()) != null) {
-			return deaths.get(p.getName());
-		} else {
-			return 0;
-		}
+		return deaths.get(p.getName());
 	} 
 	
 	public static void setLongestStreak(Player p, int streak) {
@@ -104,10 +96,6 @@ public class PlayerDataManager {
 	}
 	
 	public static int getStreak(Player p) {
-		if (lstreak.get(p.getName()) != null) {
-			return lstreak.get(p.getName());
-		} else {
-			return 0;
-		}
+		return lstreak.get(p.getName());
 	}
 }
