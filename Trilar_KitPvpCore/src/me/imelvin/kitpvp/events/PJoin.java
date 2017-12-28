@@ -26,6 +26,6 @@ public class PJoin implements Listener {
 			PlayerDataManager.setLongestStreak(p, 0);
 		}
 		p2.clearInventory();
-		//p2.addItem(CI.createItem(Material.DIAMOND, 1, -1, ChatColor.GOLD + "Global Menu"));
+		p2.addItem(CI.createItem(Material.DIAMOND, 1, -1, ChatColor.GOLD + "Global Menu"));
 	}
 }

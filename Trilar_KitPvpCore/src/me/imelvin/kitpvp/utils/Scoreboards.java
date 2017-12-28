@@ -31,6 +31,7 @@ public class Scoreboards implements Listener {
 		o.getScore(ChatColor.BLACK + "").setScore(4); //EMPTY
 		o.getScore(ChatColor.GOLD + "Longest Streak: " + ChatColor.YELLOW + PlayerDataManager.getStreak(p.getUser())).setScore(3);; //STREAK
 		o.getScore(ChatColor.GREEN + "").setScore(2); //EMPTY
+		o.getScore(ChatColor.DARK_AQUA + "Kit: " + ChatColor.AQUA.toString() + ChatColor.ITALIC + Kits.kits.get(p.getName())).setScore(1);;
 		p.setScoreboard(board);
 	}
 	

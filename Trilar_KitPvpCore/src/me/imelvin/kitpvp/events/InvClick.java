@@ -5,10 +5,13 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import me.imelvin.kitpvp.utils.KitPvPGUI;
+import me.imelvin.kitpvp.utils.Kits;
+import me.imelvin.kitpvp.utils.Kits.Kit;
 
 public class InvClick implements Listener {
 
@@ -37,16 +40,76 @@ public class InvClick implements Listener {
 			}
 		} else if (ChatColor.stripColor(p.getOpenInventory().getTitle()).equals("Kits")) {
 			e.setCancelled(true);
-			if (i.getType() == Material.WOOD_SWORD) {
-				// open starter kit
+			if (i.getType() == Material.DIAMOND_CHESTPLATE) {
+				if (e.getAction() == InventoryAction.NOTHING) {
+					Kits.giveKit(p, Kit.TANK);
+				} else {
+					// view kit
+				}
 			} else if (i.getType() == Material.STONE_SWORD) {
-				// open normal kit
-			} else if (i.getType() == Material.IRON_SWORD) {
-				// open legend kit
-			} else if (i.getType() == Material.GOLD_SWORD) {
-				// open ultra kit
+				if (e.getAction() == InventoryAction.NOTHING) {
+					Kits.giveKit(p, Kit.PVP);
+				} else {
+					// view kit
+				}
+			} else if (i.getType() == Material.STICK) {
+				if (e.getAction() == InventoryAction.NOTHING) {
+					Kits.giveKit(p, Kit.TROLL);
+				} else {
+					// view kit
+				}
+			} else if (i.getType() == Material.DIAMOND_AXE) {
+				if (e.getAction() == InventoryAction.NOTHING) {
+					Kits.giveKit(p, Kit.AXE);
+				} else {
+					// view kit
+				}
+			} else if (i.getType() == Material.BLAZE_ROD) {
+				if (e.getAction() == InventoryAction.NOTHING) {
+					Kits.giveKit(p, Kit.TROLL_2);
+				} else {
+					// view kit
+				}
+			} else if (i.getType() == Material.BOW) {
+				if (e.getAction() == InventoryAction.NOTHING) {
+					Kits.giveKit(p, Kit.ARCHER);
+				} else {
+					// view kit
+				}
 			} else if (i.getType() == Material.DIAMOND_SWORD) {
-				// open god kit
+				if (e.getAction() == InventoryAction.NOTHING) {
+					Kits.giveKit(p, Kit.OP);
+				} else {
+					// view kit
+				}
+			} else if (i.getType() == Material.POTION) {
+				if (ChatColor.stripColor(i.getItemMeta().getDisplayName()).equals("No Debuff Kit")) {
+					if (e.getAction() == InventoryAction.NOTHING) {
+						Kits.giveKit(p, Kit.NO_DEBUFF);
+					} else {
+						// view kit
+					}
+				} else if (ChatColor.stripColor(i.getItemMeta().getDisplayName()).equals("Debuff Kit")) {
+					if (e.getAction() == InventoryAction.NOTHING) {
+						Kits.giveKit(p, Kit.DEBUF);
+					} else {
+						// view kit
+					}
+				} else if (ChatColor.stripColor(i.getItemMeta().getDisplayName()).equals("Invisible Kit")) {
+					if (e.getAction() == InventoryAction.NOTHING) {
+						Kits.giveKit(p, Kit.INVISIBLE);
+					} else {
+						// view kit
+					}
+				} else if (ChatColor.stripColor(i.getItemMeta().getDisplayName()).equals("Strength Kit")) {
+					if (e.getAction() == InventoryAction.NOTHING) {
+						Kits.giveKit(p, Kit.STRENGTH);
+					} else {
+						// view kit
+					}
+				}
+			} else {
+				
 			}
 		}
 	}

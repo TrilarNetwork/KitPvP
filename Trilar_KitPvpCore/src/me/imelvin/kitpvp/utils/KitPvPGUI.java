@@ -105,17 +105,23 @@ public class KitPvPGUI {
 		ItemStack strengthpotion = strengthpot.toItemStack(1);
 		invisinvp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Strength Kit"); 
 		
-		inv.setItem(11, k1.toItemStack());
-		inv.setItem(13, k2.toItemStack());
-		inv.setItem(15, k3.toItemStack());
-		inv.setItem(21, k4.toItemStack());
-		inv.setItem(23, k5.toItemStack());
-		inv.setItem(25, k6.toItemStack());
-		inv.setItem(27, k7.toItemStack());
-		inv.setItem(29, ndbuff);
-		inv.setItem(31, dbuff);
-		inv.setItem(33, invisinvp);
-		inv.setItem(35, strengthpotion);
+		ItemStack i = CI.createItem(Material.DARK_OAK_DOOR, 1, -1, ChatColor.DARK_AQUA + "Go back to main menu!");
+		ItemStack i2 = CI.createItem(Material.SIGN_POST, 1, -1, ChatColor.WHITE + "Information", ChatColor.GOLD + "Right-Click an item to select the kit.", 
+				ChatColor.YELLOW + "Left-Click an item to preview the kit.");
+		
+		inv.setItem(2, k1.toItemStack());
+		inv.setItem(4, k2.toItemStack());
+		inv.setItem(6, k3.toItemStack());
+		inv.setItem(8, k4.toItemStack());
+		inv.setItem(10, k5.toItemStack());
+		inv.setItem(12, k6.toItemStack());
+		inv.setItem(14, k7.toItemStack());
+		inv.setItem(16, ndbuff);
+		inv.setItem(18, dbuff);
+		inv.setItem(20, invisinvp);
+		inv.setItem(22, strengthpotion);
+		inv.setItem(31, i);
+		inv.setItem(35, i2);
 		p.openInventory(inv);
 	}
 }

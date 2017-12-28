@@ -1,5 +1,6 @@
 package me.imelvin.kitpvp.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -82,5 +83,20 @@ public class Arenas implements CommandExecutor {
 	private void removeArena(String name) {
 		Kitpvp.c.getArenasFile().set("arenas." + name, null);
 		Kitpvp.c.saveArenas();
+	}
+	
+	public static void goToArena(User p, String name) {
+		for (String s : Kitpvp.c.getArenasFile().getConfigurationSection("arenas").getKeys(false)) {
+			if (s.equalsIgnoreCase(name)) {
+				Location l = new Location(Bukkit.getWorld(Kitpvp.c.getArenasFile().getString("arenas." + name + ".world")), 
+						Kitpvp.c.getArenasFile().getDouble("arenas." + name + ".x"), Kitpvp.c.getArenasFile().getDouble("arenas." + name + ".y"), 
+						Kitpvp.c.getArenasFile().getDouble("arenas." + name + ".z"));
+				l.setYaw((float) Kitpvp.c.getArenasFile().getDouble("arenas." + name + ".yaw"));
+				l.setPitch((float) Kitpvp.c.getArenasFile().getDouble("arenas." + name + ".pitch"));
+				p.teleport(l);
+			} else {
+				p.sendMessage("This arena does not exist!");
+			}
+		}
 	}
 }
