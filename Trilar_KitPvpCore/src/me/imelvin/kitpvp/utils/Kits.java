@@ -187,11 +187,11 @@ public class Kits {
 		ndefspeedp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "No Debuf Speed Pot"); 
 		Potion healpot = new Potion(PotionType.INSTANT_HEAL, 1);
 		healpot.setSplash(true);
-		ItemStack ndefhealp = healpot.toItemStack(1);
+		ItemStack ndefhealp = healpot.toItemStack(2);
 		ndefhealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "No Debuf Heal Pot");
 		Potion regpot = new Potion(PotionType.REGEN, 1);
 		regpot.setSplash(true);
-		ItemStack ndefregp = regpot.toItemStack(1);
+		ItemStack ndefregp = regpot.toItemStack(2);
 		ndefhealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "No Debuf Regen Pot");
 		ndefsword.addGlow();
 		ndefkit.add(ndefsword.toItemStack());
@@ -216,7 +216,6 @@ public class Kits {
 		ItemStack trolboots = CI.createItem(Material.LEATHER_BOOTS, 1, -1, ChatColor.GOLD + "Troll Boots");
 		trolboots.addEnchantment(Enchantment.DURABILITY, 3);
 		ItemStack trolstick = CI.createItem(Material.STICK, 1, -1, ChatColor.GOLD + "Troll Stick");
-		trolstick.addEnchantment(Enchantment.DURABILITY, 3);
 		trolstick.addEnchantment(Enchantment.KNOCKBACK, 1);
 		ItemStack trolbow = CI.createItem(Material.BOW, 1, -1, ChatColor.GOLD + "Troll Bow");
 		trolbow.addEnchantment(Enchantment.ARROW_KNOCKBACK, 1);
