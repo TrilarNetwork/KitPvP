@@ -29,6 +29,7 @@ public class PvPConfig {
 	public void setup(Plugin p) {
 		cfile = new File(p.getDataFolder(), "config.yml");
 		pdf = new File(p.getDataFolder(), "playerdata.yml");
+		carena = new File(p.getDataFolder(), "arenas.yml");
 		if (!p.getDataFolder().exists()) {
 			try {
 				Path path = Paths.get(cfile.getAbsolutePath());
