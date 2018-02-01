@@ -1,5 +1,6 @@
 package me.imelvin.kitpvp;
 
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
@@ -19,6 +20,7 @@ import me.imelvin.kitpvp.events.PInteract;
 import me.imelvin.kitpvp.events.PJoin;
 import me.imelvin.kitpvp.utils.Kits;
 import me.imelvin.kitpvp.utils.PlayerDataManager;
+import me.shizleshizle.core.mysql.MySQLManager;
 import me.shizleshizle.core.utils.DisableAI;
 
 public class Kitpvp extends JavaPlugin {
@@ -26,6 +28,12 @@ public class Kitpvp extends JavaPlugin {
 	public static Plugin p;	
 	public static String prefix = ChatColor.YELLOW.toString() + ChatColor.BOLD + "KitPvP" + ChatColor.GOLD + " >> " + ChatColor.YELLOW;
 	public static Villager v;
+	public static MySQLManager sql;
+	public static String host;
+	public static String db;
+	public static String user;
+	public static String pw;
+	public static int port;
 	
 	public void onEnable(){
 		Logger l = getLogger();
@@ -33,6 +41,8 @@ public class Kitpvp extends JavaPlugin {
 		long b = System.currentTimeMillis();
 		p = this;
 		c.setup(p);
+		sql = MySQLManager.getInstance();
+		sql.setup();
 		PlayerDataManager.load();
 		Kits.setupKits();
 		if (c.getNPCLocation() != null) {
@@ -59,6 +69,13 @@ public class Kitpvp extends JavaPlugin {
 	public void onDisable(){
 		Logger l = getLogger();
 		l.info("KitPvp Core >> Disabling...");
+		try {
+			if (sql.checkConnection()) {
+				sql.closeConnection();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		long b = System.currentTimeMillis();
 		PlayerDataManager.save();
 		long e = System.currentTimeMillis();
