@@ -61,14 +61,15 @@ public class Kitpvp extends JavaPlugin {
 		pm.registerEvents(new PDeath(), this);
 		pm.registerEvents(new PJoin(), this);
 		pm.registerEvents(new PInteract(), this);
-		long e = System.currentTimeMillis();
-		l.info("KitPvP Core >> Enabled! (" + (e - b) + " ms)");
+		long e = System.currentTimeMillis() - b;
+		l.info("KitPvP Core >> Enabled! (" + e + " ms)");
 	}
 	
 	
 	public void onDisable(){
 		Logger l = getLogger();
 		l.info("KitPvp Core >> Disabling...");
+		long b = System.currentTimeMillis();
 		try {
 			if (sql.checkConnection()) {
 				sql.closeConnection();
@@ -76,9 +77,8 @@ public class Kitpvp extends JavaPlugin {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		long b = System.currentTimeMillis();
 		PlayerDataManager.save();
-		long e = System.currentTimeMillis();
-		l.info("KitPvp Core >> Disabled! (" + (e - b) + " ms)");
+		long e = System.currentTimeMillis() - b;
+		l.info("KitPvp Core >> Disabled! (" + e + " ms)");
 	}
 }
