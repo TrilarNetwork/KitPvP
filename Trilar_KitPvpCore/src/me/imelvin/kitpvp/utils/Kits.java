@@ -151,7 +151,7 @@ public class Kits {
 		Potion regpo = new Potion(PotionType.REGEN, 1);
 		regpo.setSplash(true);
 		ItemStack pvpregp = regpo.toItemStack(1);
-		pvphealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Pvp Heal Pot");
+		pvpregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Pvp Heal Pot");
 		pvpsword.addGlow();
 		pvpkit.add(pvpsword.toItemStack());
 		pvpkit.add(pvpbow);
@@ -192,7 +192,7 @@ public class Kits {
 		Potion regpot = new Potion(PotionType.REGEN, 1);
 		regpot.setSplash(true);
 		ItemStack ndefregp = regpot.toItemStack(2);
-		ndefhealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "No Debuf Regen Pot");
+		ndefregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "No Debuf Regen Pot");
 		ndefsword.addGlow();
 		ndefkit.add(ndefsword.toItemStack());
 		ndefkit.add(ndefbow);
@@ -234,7 +234,7 @@ public class Kits {
 		Potion regpoti = new Potion(PotionType.REGEN, 1);
 		regpoti.setSplash(true);
 		ItemStack trolregp = regpoti.toItemStack(1);
-		trolhealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Troll Regen Pot");
+		trolregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Troll Regen Pot");
 		trolkit.add(trolstick);
 		trolkit.add(trolbow);
 		trolkit.add(trolarrow);
@@ -316,7 +316,7 @@ public class Kits {
 		Potion regpotion = new Potion(PotionType.REGEN, 1);
 		regpotion.setSplash(true);
 		ItemStack trollregp = regpotion.toItemStack(1);
-		trolhealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Troll Regen Pot");
+		trolregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Troll Regen Pot");
 		trollkit.add(trollstick);
 		trollkit.add(trollbow);
 		trollkit.add(trollarrow);
@@ -356,7 +356,7 @@ public class Kits {
 		Potion regpotionn = new Potion(PotionType.REGEN, 1);
 		regpotionn.setSplash(true);
 		ItemStack defregp = regpotionn.toItemStack(1);
-		defhealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Debuf Regen Pot");
+		defregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Debuf Regen Pot");
 		Potion harmpotion = new Potion(PotionType.REGEN, 1);
 		harmpotion.setSplash(true);
 		ItemStack defharmp = harmpotion.toItemStack(1);
@@ -402,7 +402,7 @@ public class Kits {
 		Potion regpotionnn = new Potion(PotionType.REGEN, 1);
 		regpotionnn.setSplash(true);
 		ItemStack invisregp = regpotionnn.toItemStack(1);
-		invishealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Invisible Regen Pot");
+		invisregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Invisible Regen Pot");
 		Potion invpotion = new Potion(PotionType.INVISIBILITY, 1);
 		invpotion.setSplash(true);
 		ItemStack invisinvp = invpotion.toItemStack(1);
