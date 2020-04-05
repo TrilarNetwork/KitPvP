@@ -18,7 +18,7 @@ public class PJoin implements Listener {
 	public void onJoin(PlayerJoinEvent e) {
 		Player p = e.getPlayer();
 		User p2 = new User(p);
-		PDeath.streak.put(p.getName(), 0);
+		PlayerDataManager.setStreak(p, 0);
 		Scoreboards.updateScoreboard();
 		if (!p.hasPlayedBefore()) {
 			PlayerDataManager.setDeaths(p, 0);

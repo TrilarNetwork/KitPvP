@@ -1,5 +1,6 @@
 package me.imelvin.kitpvp.commands;
 
+import me.imelvin.kitpvp.objects.Arena;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -25,24 +26,30 @@ public class Arenas implements CommandExecutor {
 				if (Perm.hasPerm(p, PermGroup.ADMIN)) {
 					if (args.length == 0) {
 						ErrorMessages.doErrorMessage(p, Messages.INVALID_USAGE, "/arena <set|list|remove> [name]");
-						p.sendMessage(Kitpvp.prefix + "'Set' sets the spawnpoint of the arena, not the entire region!");
+						p.sendMessage(Kitpvp.PREFIX + "'Set' sets the spawn point of the arena, not the entire region!");
 					} else if (args.length == 1) {
 						if (args[0].equalsIgnoreCase("list")) {
-							listArenas(p);
+							p.sendMessage(Kitpvp.PREFIX + "These arenas are currently saved and functional:");
+							p.sendMessage(Kitpvp.arenas.listArenas());
 						} else {
 							ErrorMessages.doErrorMessage(p, Messages.INVALID_USAGE, "/arena <set|list|remove> [name]");
 						}
 					} else if (args.length == 2) {
 						if (args[0].equalsIgnoreCase("set")) {
-							Location l = p.getLocation();
-							setArenas(args[1], l.getX(), l.getY(), l.getZ(), l.getPitch(), l.getYaw(), l.getWorld().getName());
-							p.sendMessage(Kitpvp.prefix + "You have successfully set the spawn location of " + ChatColor.GOLD + args[1] + ChatColor.YELLOW + "!");
-						} else if (args[0].equalsIgnoreCase("remove")) {
-							if (Kitpvp.c.getArenasFile().contains("arenas." + args[1])) {
-								removeArena(args[1]);
-								p.sendMessage(Kitpvp.prefix + "You have removed the arena with the name: " + ChatColor.GOLD + args[1] + ChatColor.YELLOW + "!");
+							final Location l = p.getLocation();
+							final Location arenaLoc = new Location(l.getWorld(), l.getX(), l.getY(), l.getZ(), l.getYaw(), l.getPitch());
+							if (Kitpvp.arenas.getNames().contains(args[1])) {
+								Kitpvp.arenas.getArena(args[1]).updateLocation(arenaLoc);
 							} else {
-								p.sendMessage(Kitpvp.prefix + "This arena does not exist!");
+								Kitpvp.arenas.addArena(new Arena(arenaLoc, args[1]));
+							}
+							p.sendMessage(Kitpvp.PREFIX + "You have successfully set the spawn location of " + ChatColor.GOLD + args[1] + ChatColor.YELLOW + "!");
+						} else if (args[0].equalsIgnoreCase("remove")) {
+							if (Kitpvp.arenas.getNames().contains(args[1])) {
+								Kitpvp.arenas.removeArena(Kitpvp.arenas.getArena(args[1]));
+								p.sendMessage(Kitpvp.PREFIX + "You have removed the arena with the name " + ChatColor.GOLD + args[1] + ChatColor.YELLOW + "!");
+							} else {
+								p.sendMessage(Kitpvp.PREFIX + "This arena does not exist!");
 							}
 						} else {
 							ErrorMessages.doErrorMessage(p, Messages.INVALID_USAGE, "/arena <set|list|remove> [name]");
@@ -58,45 +65,5 @@ public class Arenas implements CommandExecutor {
 			}
 		}
 		return false;
-	}
-	
-	private void listArenas(User p) {
-		StringBuilder sb = new StringBuilder();
-		for (String s : Kitpvp.c.getArenasFile().getConfigurationSection("arenas").getKeys(false)) {
-			sb.append(ChatColor.GOLD + s).append(ChatColor.WHITE + ", ");
-		}
-		String msg = sb.toString().substring(0, sb.length() - 2);
-		p.sendMessage(Kitpvp.prefix + "These arenas are currently saved and functional:");
-		p.sendMessage(msg);
-	}
-	
-	private void setArenas(String name, double x, double y, double z, float pitch, float yaw, String wname) {
-		Kitpvp.c.getArenasFile().set("arenas." + name + ".x", x);
-		Kitpvp.c.getArenasFile().set("arenas." + name + ".y", y);
-		Kitpvp.c.getArenasFile().set("arenas." + name + ".z", z);
-		Kitpvp.c.getArenasFile().set("arenas." + name + ".pitch", pitch);
-		Kitpvp.c.getArenasFile().set("arenas." + name + ".yaw", yaw);
-		Kitpvp.c.getArenasFile().set("arenas." + name + ".world", wname);
-		Kitpvp.c.saveArenas();
-	}
-	
-	private void removeArena(String name) {
-		Kitpvp.c.getArenasFile().set("arenas." + name, null);
-		Kitpvp.c.saveArenas();
-	}
-	
-	public static void goToArena(User p, String name) {
-		for (String s : Kitpvp.c.getArenasFile().getConfigurationSection("arenas").getKeys(false)) {
-			if (s.equalsIgnoreCase(name)) {
-				Location l = new Location(Bukkit.getWorld(Kitpvp.c.getArenasFile().getString("arenas." + name + ".world")), 
-						Kitpvp.c.getArenasFile().getDouble("arenas." + name + ".x"), Kitpvp.c.getArenasFile().getDouble("arenas." + name + ".y"), 
-						Kitpvp.c.getArenasFile().getDouble("arenas." + name + ".z"));
-				l.setYaw((float) Kitpvp.c.getArenasFile().getDouble("arenas." + name + ".yaw"));
-				l.setPitch((float) Kitpvp.c.getArenasFile().getDouble("arenas." + name + ".pitch"));
-				p.teleport(l);
-			} else {
-				p.sendMessage("This arena does not exist!");
-			}
-		}
 	}
 }

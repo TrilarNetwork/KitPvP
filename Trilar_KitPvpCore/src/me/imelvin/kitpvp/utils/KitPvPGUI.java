@@ -57,10 +57,9 @@ public class KitPvPGUI {
 
 	// FOR ABOVE
 	private static double getKDRatio(Player p) {
-		int kills = PlayerDataManager.getKills(p);
-		int deaths = PlayerDataManager.getDeaths(p);
-		double fin = kills / deaths;
-		return fin;
+		double kills = PlayerDataManager.getKills(p);
+		double deaths = PlayerDataManager.getDeaths(p);
+		return kills / deaths;
 	}
 
 	public static void kitsMenu(Player p) {
@@ -70,6 +69,7 @@ public class KitPvPGUI {
 			k = Kits.kits.get(p.getName());
 		}
 		T_ItemStack k1 = new T_ItemStack(CI.createItem(Material.DIAMOND_CHESTPLATE, 1, -1, "Tank Kit"));
+		assert k != null;
 		if (Kits.kits.containsKey(p.getName()) && k.equals(Kit.TANK)) {
 			k1.addGlow();
 		}

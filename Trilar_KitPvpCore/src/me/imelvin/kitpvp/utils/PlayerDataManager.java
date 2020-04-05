@@ -12,7 +12,8 @@ import me.imelvin.kitpvp.Kitpvp;
 public class PlayerDataManager {
 	private static HashMap<String, Integer> kills = new HashMap<>();
 	private static HashMap<String, Integer> deaths = new HashMap<>();
-	private static HashMap<String, Integer> lstreak = new HashMap<>();
+	private static HashMap<String, Integer> longestStreak = new HashMap<>();
+	public static HashMap<String, Integer> streak = new HashMap<>();
 	
 	public static void save() {
 		ArrayList<String> killz = new ArrayList<>();
@@ -25,11 +26,11 @@ public class PlayerDataManager {
 			deathz.add(name + "|" + deaths.get(name));
 		}
 		Kitpvp.c.getPlayerData().set("data.deaths", deathz);
-		ArrayList<String> streak = new ArrayList<>();
-		for (String name : lstreak.keySet()) {
-			streak.add(name + "|" + lstreak.get(name));
+		ArrayList<String> longStreak = new ArrayList<>();
+		for (String name : longestStreak.keySet()) {
+			longStreak.add(name + "|" + longestStreak.get(name));
 		}
-		Kitpvp.c.getPlayerData().set("data.streak", streak);
+		Kitpvp.c.getPlayerData().set("data.streak", longStreak);
 		Kitpvp.c.savePlayerData();
 	}
 	
@@ -70,7 +71,7 @@ public class PlayerDataManager {
 				} catch (NumberFormatException e) {
 					e.printStackTrace();
 				}
-				lstreak.put(data[0], s);
+				longestStreak.put(data[0], s);
 			}
 		}
 	}
@@ -92,10 +93,22 @@ public class PlayerDataManager {
 	} 
 	
 	public static void setLongestStreak(Player p, int streak) {
-		lstreak.put(p.getName(), streak);
+		longestStreak.put(p.getName(), streak);
 	}
 	
+	public static int getLongestStreak(Player p) {
+		return longestStreak.get(p.getName());
+	}
+
+	public static boolean hasStreak(Player p) {
+		return streak.containsKey(p.getName());
+	}
+
+	public static void setStreak(Player p, int newStreak) {
+		streak.put(p.getName(), newStreak);
+	}
+
 	public static int getStreak(Player p) {
-		return lstreak.get(p.getName());
+		return streak.get(p.getName());
 	}
 }

@@ -7,5 +7,5 @@ depend: [Trilar_Core]
 commands:
   arena:
     description: Set, list or remove an arena!
-  npcplace:
+  kitpvp:
     description: Place the NPC for Kit selector!

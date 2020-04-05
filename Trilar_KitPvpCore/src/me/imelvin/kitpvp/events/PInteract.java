@@ -3,6 +3,7 @@ package me.imelvin.kitpvp.events;
 import java.util.HashMap;
 import java.util.UUID;
 
+import me.shizleshizle.core.utils.Cooldowns;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,8 +17,6 @@ import me.imelvin.kitpvp.utils.KitPvPGUI;
 import me.shizleshizle.core.Main;
 
 public class PInteract implements Listener {
-	
-	private HashMap<UUID, Long> cooldown = new HashMap<UUID, Long>();
 
 	@EventHandler
 	public void onInteractEntity(PlayerInteractEntityEvent e) {
@@ -36,13 +35,12 @@ public class PInteract implements Listener {
 				e.setCancelled(true);
 				KitPvPGUI.globalMenu(p);
 			} else if (p.getItemInHand().getType() == Material.ENDER_PEARL) {
-				if (cooldown.containsKey(p.getUniqueId()) && cooldown.get(p.getUniqueId()) > System.currentTimeMillis()) {
+				if (Cooldowns.cooldown.containsKey(p.getUniqueId())) {
 					e.setCancelled(true);
 					p.updateInventory();
-					long remainingTime = cooldown.get(p.getUniqueId()) - System.currentTimeMillis();
-					p.sendMessage(Main.prefix + "You cannot enderpearl for another " + remainingTime / 1000 + " seconds");
+					p.sendMessage(Kitpvp.PREFIX + "You cannot enderpearl for another " + Cooldowns.cooldown.get(p.getUniqueId()) + " seconds");
 				} else {
-					cooldown.put(p.getUniqueId(), System.currentTimeMillis() + (10 * 1000));
+					Cooldowns.cooldown.put(p.getUniqueId(), 10);
 				}
 			}
 		}

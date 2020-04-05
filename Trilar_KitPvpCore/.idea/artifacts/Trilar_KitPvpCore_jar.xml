@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Trilar_KitPvpCore.jar">
+    <output-path>$USER_HOME$/Desktop/Trilar</output-path>
+    <root id="archive" name="Trilar_KitPvpCore.jar">
+      <element id="module-output" name="Trilar_KitPvpCore" />
+    </root>
+  </artifact>
+</component>

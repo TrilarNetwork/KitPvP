@@ -25,47 +25,47 @@ public class Kits {
 	public static void giveKit(Player p, Kit k) {
 		if (k.equals(Kit.TANK)) {
 			p.getInventory().clear();
-			ItemStack[] items = tankkit.toArray(new ItemStack[tankkit.size()]);
+			ItemStack[] items = tankkit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		} else if (k.equals(Kit.PVP)) {
 			p.getInventory().clear();
-			ItemStack[] items = pvpkit.toArray(new ItemStack[pvpkit.size()]);
+			ItemStack[] items = pvpkit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		} else if (k.equals(Kit.NO_DEBUFF)) {
 			p.getInventory().clear();
-			ItemStack[] items = ndefkit.toArray(new ItemStack[ndefkit.size()]);
+			ItemStack[] items = ndefkit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		}  else if (k.equals(Kit.TROLL)) {
 			p.getInventory().clear();
-			ItemStack[] items = trolkit.toArray(new ItemStack[trolkit.size()]);
+			ItemStack[] items = trolkit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		} else if (k.equals(Kit.AXE)) {
 			p.getInventory().clear();
-			ItemStack[] items = axekit.toArray(new ItemStack[axekit.size()]);
+			ItemStack[] items = axekit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		} else if (k.equals(Kit.TROLL_2)) {
 			p.getInventory().clear();
-			ItemStack[] items = trollkit.toArray(new ItemStack[trollkit.size()]);
+			ItemStack[] items = trollkit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		} else if (k.equals(Kit.DEBUF)) {
 			p.getInventory().clear();
-			ItemStack[] items = debufkit.toArray(new ItemStack[debufkit.size()]);
+			ItemStack[] items = debufkit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		} else if (k.equals(Kit.INVISIBLE)) {
 			p.getInventory().clear();
-			ItemStack[] items = inviskit.toArray(new ItemStack[inviskit.size()]);
+			ItemStack[] items = inviskit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		} else if (k.equals(Kit.STRENGTH)) {
 			p.getInventory().clear();
-			ItemStack[] items = strengthkit.toArray(new ItemStack[strengthkit.size()]);
+			ItemStack[] items = strengthkit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		} else if (k.equals(Kit.ARCHER)) {
 			p.getInventory().clear();
-			ItemStack[] items = archerkit.toArray(new ItemStack[archerkit.size()]);
+			ItemStack[] items = archerkit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		} else if (k.equals(Kit.OP)) {
 			p.getInventory().clear();
-			ItemStack[] items = opkit.toArray(new ItemStack[opkit.size()]);
+			ItemStack[] items = opkit.toArray(new ItemStack[0]);
 			p.getInventory().setContents(items);
 		}
 	}

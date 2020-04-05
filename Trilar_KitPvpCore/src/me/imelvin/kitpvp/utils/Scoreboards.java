@@ -25,13 +25,13 @@ public class Scoreboards implements Listener {
 		o.getScore(ChatColor.AQUA + "").setScore(10); //EMPTY
 		o.getScore(p.getDisplayName()).setScore(9);  //DISPLAY NAME
 		o.getScore(ChatColor.WHITE + "").setScore(8); //EMPTY
-		o.getScore(ChatColor.GOLD + "Kills: " + ChatColor.YELLOW + PlayerDataManager.getKills(p.getUser())).setScore(7);; //KILLS
+		o.getScore(ChatColor.GOLD + "Kills: " + ChatColor.YELLOW + PlayerDataManager.getKills(p.getUser())).setScore(7);//KILLS
 		o.getScore(ChatColor.RED + "").setScore(6); //EMPTY
-		o.getScore(ChatColor.GOLD + "Deaths: " + ChatColor.YELLOW + PlayerDataManager.getDeaths(p.getUser())).setScore(5);; //DEATHS
+		o.getScore(ChatColor.GOLD + "Deaths: " + ChatColor.YELLOW + PlayerDataManager.getDeaths(p.getUser())).setScore(5); //DEATHS
 		o.getScore(ChatColor.BLACK + "").setScore(4); //EMPTY
-		o.getScore(ChatColor.GOLD + "Longest Streak: " + ChatColor.YELLOW + PlayerDataManager.getStreak(p.getUser())).setScore(3);; //STREAK
+		o.getScore(ChatColor.GOLD + "Longest Streak: " + ChatColor.YELLOW + PlayerDataManager.getStreak(p.getUser())).setScore(3); //STREAK
 		o.getScore(ChatColor.GREEN + "").setScore(2); //EMPTY
-		o.getScore(ChatColor.DARK_AQUA + "Kit: " + ChatColor.AQUA.toString() + ChatColor.ITALIC + Kits.kits.get(p.getName())).setScore(1);;
+		o.getScore(ChatColor.DARK_AQUA + "Kit: " + ChatColor.AQUA.toString() + ChatColor.ITALIC + Kits.kits.get(p.getName())).setScore(1);
 		p.setScoreboard(board);
 	}
 	
