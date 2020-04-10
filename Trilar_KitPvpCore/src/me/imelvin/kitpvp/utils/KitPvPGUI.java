@@ -16,6 +16,8 @@ import me.shizleshizle.core.objects.User;
 import me.shizleshizle.core.utils.CI;
 import me.shizleshizle.core.utils.T_ItemStack;
 
+import java.util.Objects;
+
 public class KitPvPGUI {
 
 	public static void globalMenu(Player p) {
@@ -37,7 +39,7 @@ public class KitPvPGUI {
 		ItemStack kills = CI.createItem(Material.DIAMOND_SWORD, 1, -1,
 				ChatColor.GOLD + "Kills: " + ChatColor.YELLOW + PlayerDataManager.getKills(p)); // add
 																								// kills
-		ItemStack deaths = CI.createItem(Material.SKULL_ITEM, 1, 0,
+		ItemStack deaths = CI.createItem(Material.PLAYER_HEAD, 1, 0,
 				ChatColor.DARK_RED + "Deaths: " + ChatColor.YELLOW + PlayerDataManager.getDeaths(p)); // add
 																										// deaths;
 		ItemStack ratio = CI.createItem(Material.DEAD_BUSH, 1, -1,
@@ -117,7 +119,7 @@ public class KitPvPGUI {
 		//strengthpotion.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Strength Kit");
 
 		ItemStack i = CI.createItem(Material.DARK_OAK_DOOR, 1, -1, ChatColor.DARK_AQUA + "Go back to main menu!");
-		ItemStack i2 = CI.createItem(Material.SIGN_POST, 1, -1, ChatColor.WHITE + "Information",
+		ItemStack i2 = CI.createItem(Material.OAK_SIGN, 1, -1, ChatColor.WHITE + "Information",
 				ChatColor.GOLD + "Right-Click an item to select the kit.",
 				ChatColor.YELLOW + "Left-Click an item to preview the kit.");
 
@@ -160,15 +162,15 @@ public class KitPvPGUI {
 		Potion tankspeed = new Potion(PotionType.SPEED, 1);
 		tankspeed.setSplash(true);
 		ItemStack tankspeedp = tankspeed.toItemStack(1);
-		tankspeedp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Tank Speed Pot");
+		Objects.requireNonNull(tankspeedp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Tank Speed Pot");
 		Potion tankheal = new Potion(PotionType.INSTANT_HEAL, 1);
 		tankheal.setSplash(true);
 		ItemStack tankhealp = tankheal.toItemStack(1);
-		tankhealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Tank Heal Pot");
+		Objects.requireNonNull(tankhealp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Tank Heal Pot");
 		Potion tankregen = new Potion(PotionType.REGEN, 1);
 		tankregen.setSplash(true);
 		ItemStack tankregp = tankregen.toItemStack(1);
-		tankregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Tank Regen Pot");
+		Objects.requireNonNull(tankregp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Tank Regen Pot");
 
 		inv.setItem(20, tankhelmet);
 		inv.setItem(21, tankchestplate);
@@ -205,15 +207,15 @@ public class KitPvPGUI {
 		Potion pvpspeed = new Potion(PotionType.SPEED, 1);
 		pvpspeed.setSplash(true);
 		ItemStack pvpspeedp = pvpspeed.toItemStack(1);
-		pvpspeedp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Pvp Speed Pot");
+		Objects.requireNonNull(pvpspeedp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Pvp Speed Pot");
 		Potion pvpheal = new Potion(PotionType.INSTANT_HEAL, 1);
 		pvpheal.setSplash(true);
 		ItemStack pvphealp = pvpheal.toItemStack(1);
-		pvphealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Pvp Heal Pot");
+		Objects.requireNonNull(pvphealp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Pvp Heal Pot");
 		Potion pvpregen = new Potion(PotionType.REGEN, 1);
 		pvpregen.setSplash(true);
 		ItemStack pvpregp = pvpregen.toItemStack(1);
-		pvpregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Pvp Regen Pot");
+		Objects.requireNonNull(pvpregp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Pvp Regen Pot");
 
 		inv.setItem(20, pvphelmet);
 		inv.setItem(21, pvpchestplate);
@@ -250,15 +252,15 @@ public class KitPvPGUI {
 		Potion speedpoti = new Potion(PotionType.SPEED, 1);
 		speedpoti.setSplash(true);
 		ItemStack trolspeedp = speedpoti.toItemStack(1);
-		trolspeedp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Troll Speed Pot"); 
+		Objects.requireNonNull(trolspeedp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Troll Speed Pot");
 		Potion healpoti = new Potion(PotionType.INSTANT_HEAL, 1);
 		healpoti.setSplash(true);
 		ItemStack trolhealp = healpoti.toItemStack(1);
-		trolhealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Troll Heal Pot");
+		Objects.requireNonNull(trolhealp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Troll Heal Pot");
 		Potion regpoti = new Potion(PotionType.REGEN, 1);
 		regpoti.setSplash(true);
 		ItemStack trolregp = regpoti.toItemStack(1);
-		trolregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Troll Regen Pot");
+		Objects.requireNonNull(trolregp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Troll Regen Pot");
 		
 		inv.setItem(20, trolhelmet);
 		inv.setItem(21, trolchestplate);
@@ -275,13 +277,13 @@ public class KitPvPGUI {
 	}
 	public static void openAxe(User p) {
 		Inventory inv = Bukkit.createInventory(null, 6 * 9, ChatColor.GOLD + "Axe Kit");
-		ItemStack axehelmet = CI.createItem(Material.GOLD_HELMET, 1, -1, ChatColor.GOLD + "Axe Helmet");
+		ItemStack axehelmet = CI.createItem(Material.GOLDEN_HELMET, 1, -1, ChatColor.GOLD + "Axe Helmet");
 		axehelmet.addEnchantment(Enchantment.DURABILITY, 3);
-		ItemStack axechestplate = CI.createItem(Material.GOLD_CHESTPLATE, 1, -1, ChatColor.GOLD + "Axe Chestplate");
+		ItemStack axechestplate = CI.createItem(Material.GOLDEN_CHESTPLATE, 1, -1, ChatColor.GOLD + "Axe Chestplate");
 		axechestplate.addEnchantment(Enchantment.DURABILITY, 3);
-		ItemStack axeleggings = CI.createItem(Material.GOLD_LEGGINGS, 1, -1, ChatColor.GOLD + "Axe Leggings");
+		ItemStack axeleggings = CI.createItem(Material.GOLDEN_LEGGINGS, 1, -1, ChatColor.GOLD + "Axe Leggings");
 		axeleggings.addEnchantment(Enchantment.DURABILITY, 3);
-		ItemStack axeboots = CI.createItem(Material.GOLD_BOOTS, 1, -1, ChatColor.GOLD + "Axe Boots");
+		ItemStack axeboots = CI.createItem(Material.GOLDEN_BOOTS, 1, -1, ChatColor.GOLD + "Axe Boots");
 		axeboots.addEnchantment(Enchantment.DURABILITY, 3);
 		ItemStack axeaxe = CI.createItem(Material.IRON_AXE, 1, -1, ChatColor.GOLD + "Axe");
 		ItemStack axebow = CI.createItem(Material.BOW, 1, -1, ChatColor.GOLD + "Axe Bow");
@@ -293,15 +295,15 @@ public class KitPvPGUI {
 		Potion speedpotio = new Potion(PotionType.SPEED, 1);
 		speedpotio.setSplash(true);
 		ItemStack axespeedp = speedpotio.toItemStack(1);
-		axespeedp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Axe Speed Pot"); 
+		Objects.requireNonNull(axespeedp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Axe Speed Pot");
 		Potion healpotio = new Potion(PotionType.INSTANT_HEAL, 1);
 		healpotio.setSplash(true);
 		ItemStack axehealp = healpotio.toItemStack(1);
-		axehealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Axe Heal Pot");
+		Objects.requireNonNull(axehealp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Axe Heal Pot");
 		Potion regpotio = new Potion(PotionType.REGEN, 1);
 		regpotio.setSplash(true);
 		ItemStack axeregp = regpotio.toItemStack(1);
-		axeregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Axe Regen Pot");
+		Objects.requireNonNull(axeregp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Axe Regen Pot");
 		
 		inv.setItem(20, axehelmet);
 		inv.setItem(21, axechestplate);
@@ -337,15 +339,15 @@ public class KitPvPGUI {
 		Potion speedpotion = new Potion(PotionType.SPEED, 1);
 		speedpotion.setSplash(true);
 		ItemStack trollspeedp = speedpotion.toItemStack(1);
-		trollspeedp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Troll Speed Pot"); 
+		Objects.requireNonNull(trollspeedp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Troll Speed Pot");
 		Potion healpotion = new Potion(PotionType.INSTANT_HEAL, 1);
 		healpotion.setSplash(true);
 		ItemStack trollhealp = healpotion.toItemStack(1);
-		trollhealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Troll Heal Pot");
+		Objects.requireNonNull(trollhealp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Troll Heal Pot");
 		Potion regpotion = new Potion(PotionType.REGEN, 1);
 		regpotion.setSplash(true);
 		ItemStack trollregp = regpotion.toItemStack(1);
-		trollregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Troll Regen Pot");
+		Objects.requireNonNull(trollregp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Troll Regen Pot");
 		
 		inv.setItem(20, trollhelmet);
 		inv.setItem(21, trollchestplate);
@@ -370,7 +372,7 @@ public class KitPvPGUI {
 		archerleggings.addEnchantment(Enchantment.DURABILITY, 3);
 		ItemStack archerboots = CI.createItem(Material.LEATHER_BOOTS, 1, -1, ChatColor.DARK_AQUA + "Archer Boots");
 		archerboots.addEnchantment(Enchantment.DURABILITY, 3);
-		ItemStack archersword = CI.createItem(Material.WOOD_SWORD, 1, -1, ChatColor.DARK_AQUA + "Archer Sword");
+		ItemStack archersword = CI.createItem(Material.WOODEN_SWORD, 1, -1, ChatColor.DARK_AQUA + "Archer Sword");
 		ItemStack archerbow = CI.createItem(Material.BOW, 1, -1, ChatColor.DARK_AQUA + "Archer Bow");
 		archerbow.addEnchantment(Enchantment.ARROW_KNOCKBACK, 1);
 		archerbow.addEnchantment(Enchantment.ARROW_INFINITE, 1);
@@ -381,15 +383,15 @@ public class KitPvPGUI {
 		Potion speedpotioniii = new Potion(PotionType.SPEED, 1);
 		speedpotioniii.setSplash(true);
 		ItemStack archerspeedp = speedpotioniii.toItemStack(1);
-		archerspeedp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Archer Speed Pot"); 
+		Objects.requireNonNull(archerspeedp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Archer Speed Pot");
 		Potion healpotioniii = new Potion(PotionType.INSTANT_HEAL, 1);
 		healpotioniii.setSplash(true);
 		ItemStack archerhealp = healpotioniii.toItemStack(1);
-		archerhealp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Archer Heal Pot");
+		Objects.requireNonNull(archerhealp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Archer Heal Pot");
 		Potion regpotioniii = new Potion(PotionType.REGEN, 1);
 		regpotioniii.setSplash(true);
 		ItemStack archerregp = regpotioniii.toItemStack(1);
-		archerregp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Archer Regen Pot");
+		Objects.requireNonNull(archerregp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "Archer Regen Pot");
 		
 		inv.setItem(20, archerhelmet);
 		inv.setItem(21, archerchestplate);
@@ -419,7 +421,7 @@ public class KitPvPGUI {
 		Potion speedpotionii = new Potion(PotionType.SPEED, 1);
 		speedpotionii.setSplash(true);
 		ItemStack opspeedp = speedpotionii.toItemStack(1);
-		opspeedp.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "OP Speed Pot");
+		Objects.requireNonNull(opspeedp.getItemMeta()).setDisplayName(ChatColor.DARK_AQUA + "OP Speed Pot");
 		
 		inv.setItem(20, ophelmet);
 		inv.setItem(21, opchestplate);

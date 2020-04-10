@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -148,7 +149,7 @@ public class PvPConfig {
 			z = config.getDouble("spawn.z");
 			yaw = (float) config.getDouble("spawn.yaw");
 			pitch = (float) config.getDouble("spawn.pitch");
-			w = Bukkit.getServer().getWorld(config.getString("spawn.world"));
+			w = Bukkit.getServer().getWorld(Objects.requireNonNull(config.getString("spawn.world")));
 			l = new Location(w, x, y, z);
 			l.setYaw(yaw);
 			l.setPitch(pitch);
