@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="KitPvP.jar" />
+      <artifact name="KitPvP-0.0.1-1.15.2.jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
@@ -28,8 +28,8 @@
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="kitpvp" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../core" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Alle mappen + Bestanden/Trilar/Trilar_McCore-0.0.1-1.15.2.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -53,14 +53,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="336" key="FileChooserDialogImpl" timestamp="1586559878743">
+    <state x="740" y="336" key="FileChooserDialogImpl" timestamp="1586560877998">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="740" y="336" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1586559878743" />
-    <state x="440" y="114" key="SettingsEditor" timestamp="1586559185872">
+    <state x="740" y="336" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1586560877998" />
+    <state x="443" y="139" key="SettingsEditor" timestamp="1586560882453">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="440" y="114" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1586559185872" />
+    <state x="443" y="139" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1586560882453" />
     <state x="616" y="250" key="run.anything.popup" timestamp="1586474995085">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
