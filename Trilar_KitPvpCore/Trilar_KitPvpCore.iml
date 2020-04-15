@@ -14,7 +14,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
-    <orderEntry type="library" name="Spigot-1.8.8" level="project" />
     <orderEntry type="library" name="Trilar_McCore-0.0.1" level="project" />
+    <orderEntry type="library" name="Spigot-1.15.2" level="project" />
   </component>
 </module>
