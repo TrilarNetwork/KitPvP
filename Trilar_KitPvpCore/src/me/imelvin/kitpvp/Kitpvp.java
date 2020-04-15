@@ -1,6 +1,7 @@
 package me.imelvin.kitpvp;
 
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.logging.Logger;
 
 import me.imelvin.kitpvp.objects.ArenaHandler;
@@ -46,18 +47,18 @@ public class Kitpvp extends JavaPlugin {
 		PlayerDataManager.load();
 		Kits.setupKits();
 		if (c.getNPCLocation() != null) {
-			v = (Villager) Bukkit.getServer().getWorld(c.getNPCWorld()).spawnEntity(c.getNPCLocation(), EntityType.VILLAGER);
+			v = (Villager) Objects.requireNonNull(Bukkit.getServer().getWorld(c.getNPCWorld())).spawnEntity(c.getNPCLocation(), EntityType.VILLAGER);
 			v.setAdult();
 			v.setAgeLock(true);
 			v.setBreed(false);
 			v.setCanPickupItems(false);
-			v.setProfession(Profession.BLACKSMITH);
+			v.setProfession(Profession.WEAPONSMITH);
 			DisableAI.disableAI(v);
 		}
 		arenas = new ArenaHandler();
 		arenas.loadArenas();
-		getCommand("arena").setExecutor(new Arenas());
-		getCommand("npcplace").setExecutor(new KitPvP());
+		Objects.requireNonNull(getCommand("arena")).setExecutor(new Arenas());
+		Objects.requireNonNull(getCommand("npcplace")).setExecutor(new KitPvP());
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new InvClick(), this);
 		pm.registerEvents(new PDeath(), this);

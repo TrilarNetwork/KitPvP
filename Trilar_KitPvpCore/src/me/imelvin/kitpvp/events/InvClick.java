@@ -13,6 +13,8 @@ import me.imelvin.kitpvp.utils.KitPvPGUI;
 import me.imelvin.kitpvp.utils.Kits;
 import me.imelvin.kitpvp.utils.Kits.Kit;
 
+import java.util.Objects;
+
 public class InvClick implements Listener {
 
 	@EventHandler
@@ -24,7 +26,7 @@ public class InvClick implements Listener {
 		switch (ChatColor.stripColor(p.getOpenInventory().getTitle())) {
 			case "KitPvP Menu":
 				e.setCancelled(true);
-				if (i.getType() == Material.SKULL_ITEM) {
+				if (i.getType() == Material.PLAYER_HEAD) {
 					p.closeInventory();
 					KitPvPGUI.profileMenu(p);
 				} else if (i.getType() == Material.DIAMOND_SWORD) {
@@ -86,7 +88,7 @@ public class InvClick implements Listener {
 						// view kit
 					}
 				} else if (i.getType() == Material.POTION) {
-					if (ChatColor.stripColor(i.getItemMeta().getDisplayName()).equals("No Debuff Kit")) {
+					if (ChatColor.stripColor(Objects.requireNonNull(i.getItemMeta()).getDisplayName()).equals("No Debuff Kit")) {
 						if (e.getAction() == InventoryAction.NOTHING) {
 							Kits.giveKit(p, Kit.NO_DEBUFF);
 						} else {
